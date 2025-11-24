@@ -55,7 +55,10 @@ This project follows a modular architecture to separate business logic from user
 
 ## 📚 Documentation
 For deep technical details, please see the `docs/` folder:
-* TBU
+* [`docs/overview.md`](docs/overview.md)
+* [`docs/algorithm.md`](docs/algorithm.md)
+* [`docs/design.md`](docs/design.md)
+* [`docs/examples.md`](docs/examples.md)
 
 ## 👤 Author
 * Nguyen "John" Ha & Yanglin "Elliot" Hu
