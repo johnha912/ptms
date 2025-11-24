@@ -55,8 +55,7 @@ This project follows a modular architecture to separate business logic from user
 
 ## 📚 Documentation
 For deep technical details, please see the `docs/` folder:
-* [**Algorithm Logic**](docs/algorithm_logic.md): Flowcharts explaining the scheduling loop and recommender system.
-* [**System Design**](docs/design.md): Explanation of the Separation of Concerns and Data Structures.
+* TBU
 
 ## 👤 Author
 * Nguyen "John" Ha & Yanglin "Elliot" Hu
