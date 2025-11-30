@@ -1,18 +1,18 @@
 # 📘 Project Documentation — Overview
 
-This folder provides simple, beginner-friendly explanations of how the Passive Time Management Scheduler works.  
+This folder provides simple, beginner-friendly explanations of how the Passive Time Management Scheduler works.
 It is meant for CS5001 Align students who want to understand the project structure without diving into advanced algorithms.
 
 ---
 
 ## ⭐ What This Scheduler Does
-The program helps you automatically place your weekly tasks into a schedule.  
+The program helps you automatically place your weekly tasks into a schedule.
 Instead of dragging items around on a calendar, you tell the program:
 
-- how long a task takes  
-- when it can start  
-- when it must finish  
-- how many times per week it happens  
+- how long a task takes
+- when it can start
+- when it must finish
+- how many times per week it happens
 - its priority
 
 … and the program finds the best available time slot for you.
@@ -32,18 +32,12 @@ When it cannot fit a task, it will suggest alternative free windows.
 ---
 
 ## ⭐ Where the Main Code Lives
-The main project files are:
+The project is split into small files so each one is easy to read:
 
-- `main.py` — runs the whole program  
-- `scheduler.py` — finds time slots for tasks  
-- `io_handler.py` — gets user input + prints results  
-- `utils.py` — time parsing and helper functions  
-- `test_scenarios.py` — pre-built examples  
-- `constants.py` — numbers like "15 minutes per slot"
-
----
-
-## ⭐ When To Read These Docs
-If you want to understand **how the project works**, or if you're preparing for a **code review**, these docs are the best place to start.
-
-Enjoy!  
+- `main.py` — runs the whole program
+- `scheduler.py` — finds time slots for tasks (The "Brain")
+- `recommender.py` — suggests times if the schedule is full (The "Advisor")
+- `io_handler.py` — gets user input
+- `reporter.py` — draws the chart and saves the CSV
+- `utils.py` — time parsing and helper functions
+- `test_scenarios.py` — pre-built examples

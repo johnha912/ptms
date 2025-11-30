@@ -2,65 +2,62 @@
 
 > A smart weekly scheduler that fits tasks into your life using a priority-based greedy algorithm.
 
-![Status](https://img.shields.io/badge/Status-Completed-success) ![Python](https://img.shields.io/badge/Python-3.x-blue)
-
 ## 📖 Overview
 This project is a Python-based application designed to automate weekly planning. Unlike standard calendars where you manually drag-and-drop tasks, this scheduler takes a list of tasks (with constraints like priority, duration, and frequency) and automatically finds the optimal time slots for them.
 
-It features **Conflict Resolution**, **Smart Break Insertion**, and a **Recommender System** that suggests alternative times when a schedule is full.
+It features **Conflict Resolution** and a **Recommender System** that suggests alternative times when a schedule is full.
 
 ## 🚀 Key Features
 * **Auto-Scheduling:** Assigns 15-minute blocks based on "Earliest Start" and "Latest End" constraints.
-* **Priority Logic:** Critical ('S') tasks are scheduled before Flexible ('F') tasks.
-* **Smart Breaks:** Automatically inserts a 15-minute break after any task longer than 2 hours.
-* **Recovery Mode:** If a task cannot fit, the system scans the day and suggests specific free time windows.
+* **Priority Logic:** Critical ('S') tasks are scheduled before Flexible ('C') tasks.
+* **Conflict Handling:** If a task doesn't fit, the system detects the error.
+* **Recommender System:** Scans the day for free gaps and suggests specific alternative times (e.g., *"Try 14:00-16:00"*).
 * **Visual Output:** Generates an ASCII bar chart of the week in the console.
-* **Data Export:** Saves the final schedule to `my_schedule.csv` for Excel/Google Sheets.
+* **Data Export:** Saves the final schedule to `my_schedule.csv`.
 
 ## 🛠️ Project Structure
-This project follows a modular architecture to separate business logic from user interaction.
+The code is split into small, focused modules (under 75 lines each) to ensure readability and easy debugging.
 
-| File | Description |
-| :--- | :--- |
-| `main.py` | The entry point. Orchestrates the flow between Input, Logic, and Output. |
-| `scheduler.py` | The "Brain." Contains the greedy algorithm, collision detection, and recommender logic. |
-| `io_handler.py` | Handles all user inputs and draws the ASCII visualization. |
-| `utils.py` | Helper functions for time parsing (e.g., converting "14:30" to 870 minutes). |
-| `test_scenarios.py` | A test suite with pre-defined scenarios (Student vs. Professional) to demonstrate the logic. |
+| File | Role | Description |
+| :--- | :--- | :--- |
+| `main.py` | **Entry** | The manager. Orchestrates the flow between modules. |
+| `scheduler.py` | **Logic** | The "Brain." Decides where tasks go using a greedy algorithm. |
+| `recommender.py` | **Logic** | The "Advisor." Finds alternative slots when conflicts occur. |
+| `io_handler.py` | **Input** | Handles user prompts to collect task data. |
+| `reporter.py` | **Output** | Handles ASCII visualization and CSV file saving. |
+| `utils.py` | **Helper** | specific math and time conversion functions. |
+| `test_scenarios.py` | **Test** | Runs automated tests (Success and Conflict scenarios). |
+| `test_data.py` | **Data** | Holds raw data for testing so the logic stays clean. |
 
 ## 💻 How to Run
 
 ### Prerequisites
 * Python 3.6 or higher.
-* No external libraries required (uses standard `math`, `csv`, `datetime`, `re`).
+* No external libraries required (uses standard `math`, `csv`, `datetime`).
 
-### Steps
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/ptms.git](https://github.com/YOUR_USERNAME/ptms.git)
-    cd ptms
-    ```
+### 1. Interactive Mode (User Input)
+Run the main program to enter your own tasks:
+```bash
+python main.py
+```
+Follow the prompts. Type done when finished adding tasks.
 
-2.  **Run the Interactive App**
-    ```bash
-    python main.py
-    ```
-    Follow the prompts to enter your tasks. Type `done` when finished.
+### 2. Test Mode (Automated)
+Run the test suite to see how the system handles both "Perfect" schedules and "Conflicts":
+```bash
+python test_scenarios.py
+```
 
-3.  **Run the Test Scenarios**
-    To see the scheduler in action with complex data (without typing it manually):
-    ```bash
-    python test_scenarios.py
-    ```
+# 📚 Documentation
 
-## 📚 Documentation
-For deep technical details, please see the `docs/` folder:
-* [`docs/overview.md`](docs/overview.md)
-* [`docs/algorithm.md`](docs/algorithm.md)
-* [`docs/design.md`](docs/design.md)
-* [`docs/examples.md`](docs/examples.md)
+For deep technical details, please see the docs/ folder:
 
-## 👤 Author
+* [Overview](docs\overview.md): High-level summary for beginners.
+* [Algorithm](docs\algorithm): How the scheduling logic works.
+* [System Design](docs/design.md): Explanation of the modular architecture.
+* [Examples](docs\examples): Sample outputs and scenarios.
+
+# 👤 Author
 * Nguyen "John" Ha & Yanglin "Elliot" Hu
 * CS5001 Final Project - Professor Mark Miller
 * Northeastern University - Fall 2025
