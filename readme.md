@@ -54,7 +54,7 @@ For deep technical details, please see the docs/ folder:
 
 * [Overview](docs\overview.md): High-level summary for beginners.
 * [Algorithm](docs\algorithm): How the scheduling logic works.
-* [System Design](docs/design.md): Explanation of the modular architecture.
+* [System Design](docs\design.md): Explanation of the modular architecture.
 * [Examples](docs\examples): Sample outputs and scenarios.
 
 # 👤 Author
