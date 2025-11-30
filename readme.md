@@ -43,10 +43,15 @@ python main.py
 Follow the prompts. Type done when finished adding tasks.
 
 ### 2. Test Mode (Automated)
-Run the test suite to see how the system handles both "Perfect" schedules and "Conflicts":
+Run the test suite to see how the system handles complex scenarios:
 ```bash
 python test_scenarios.py
 ```
+This will run two scenarios:
+
+1. **Busy College Student**: A high-intensity schedule with classes, jobs, and study.
+
+2. **Work-Life Professional**: A structured week with meetings, deep work, and hobbies.
 
 # 📚 Documentation
 

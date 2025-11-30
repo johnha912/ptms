@@ -25,30 +25,20 @@ Monday, Dec 01
 ## Example 2 — When a Task Doesn't Fit
 **Input:**
 ```text
-Task: Deep Work
-Duration: 3h
-Earliest Start: 09:00
-Latest End: 11:00
+1. EXISTING TASK (Scheduled first):
+   Name: Staff Meeting
+   Duration: 2h
+   Time: 09:00 - 11:00
+   Priority: S
+
+2. NEW TASK (The Conflict):
+   Name: Deep Work
+   Duration: 3h
+   Earliest Start: 09:00
+   Latest End: 12:00
 ```
 
 **Output:**
 ```text
 ❌ Deep Work: TIME CONFLICT! Try: 11:00-14:00
-```
-
-## Example 3 — Full Student Scenario
-Using `test_scenarios.py`.
-
-You will see sections like:
-```text
-Monday, Dec 01
-------------------------------------------------------------
- 06:00 | ████ Gym Workout
- 10:00 | ████████████ CS5001 Assignment
- 15:00 | ████████ CS5002 Study Session
-
-Sunday, Dec 07
-------------------------------------------------------------
- 10:00 | ████████ Meal Prep
- 19:00 | ██ Video Call
 ```
