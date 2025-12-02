@@ -41,29 +41,17 @@ This document explains how each Python file contributes to the project using a *
 
 ## 🔄 2. Data Flow Diagram
 
-```text
-[ USER ] 
-   |
-   v
-[ IO_HANDLER ] --> (List of Tasks)
-                       |
-                       v
-                   [ MAIN ]
-                       |
-        +--------------+--------------+
-        |                             |
-        v                             v
-[ SCHEDULER ] <--(if full)--> [ RECOMMENDER ]
-        |
-        v
- (Final Schedule)
-        |
-        v
-   [ REPORTER ]
-        |
-        +-----> [ SCREEN (Visual) ]
-        |
-        +-----> [ CSV FILE (Excel) ]
+```mermaid
+flowchart TD
+    A([START]) --> B[/Input: Get Tasks<br>io_handler.py/]
+    B --> C[Process: Scheduler<br>Assign Days]
+    C --> D{Decision: Is the<br>time slot free?}
+    D -->|NO| E[Recommender<br>Find Gaps]
+    D -->|YES| F[Schedule<br>The Task]
+    E --> G[/Output: Print Chart<br>reporter.py/]
+    F --> G
+    G --> H[(Storage: Save CSV<br>my_schedule.csv)]
+    H --> I([END])
 ```
 
 ## 📚 3. Why the Project Is Split into Multiple Files
