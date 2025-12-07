@@ -43,15 +43,41 @@ This document explains how each Python file contributes to the project using a *
 
 ```mermaid
 flowchart TD
-    A([START]) --> B[/Input: Get Tasks<br>io_handler.py/]
-    B --> C[Process: Scheduler<br>Assign Days]
-    C --> D{Decision: Is the<br>time slot free?}
-    D -->|NO| E[Recommender<br>Find Gaps]
-    D -->|YES| F[Schedule<br>The Task]
-    E --> G[/Output: Print Chart<br>reporter.py/]
-    F --> G
-    G --> H[(Storage: Save CSV<br>my_schedule.csv)]
-    H --> I([END])
+    START([START])
+    
+    IO[/"📥 io_handler.py<br/>Collect User Tasks"/]
+    
+    CHECK{Has Tasks?}
+    
+    MAIN["🎯 main.py<br/>Orchestrate Modules"]
+    
+    SCHED["🧠 scheduler.py<br/>Assign Tasks to Days<br/>& Find Time Slots"]
+    
+    CONFLICT{Conflict?}
+    
+    RECOM["💡 recommender.py<br/>Suggest Alternatives"]
+    
+    REPORT["📊 reporter.py<br/>Visualize Schedule"]
+    
+    SAVEQ{Save CSV?}
+    
+    CSV[("💾 my_schedule.csv")]
+    
+    STOP([STOP])
+
+    START --> IO
+    IO --> CHECK
+    CHECK -->|No| STOP
+    CHECK -->|Yes| MAIN
+    MAIN --> SCHED
+    SCHED --> CONFLICT
+    CONFLICT -->|Yes| RECOM
+    CONFLICT -->|No| REPORT
+    RECOM --> REPORT
+    REPORT --> SAVEQ
+    SAVEQ -->|Yes| CSV
+    SAVEQ -->|No| STOP
+    CSV --> STOP
 ```
 
 ## 📚 3. Why the Project Is Split into Multiple Files
