@@ -5,7 +5,7 @@ Entry point. Imports functionality from modular files.
 """
 import scheduler
 import io_handler
-import reporter   # NEW IMPORT
+import reporter
 import utils
 from constants import SLOTS_PER_DAY, PRIORITY_VALUES
 
