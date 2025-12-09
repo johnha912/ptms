@@ -21,7 +21,7 @@ The code is split into small, focused modules (under 75 lines each) to ensure re
 | File | Role | Description |
 | :--- | :--- | :--- |
 | `main.py` | **Entry** | The manager. Orchestrates the flow between modules. |
-| `scheduler.py` | **Logic** | The "Brain." Decides where tasks go using a greedy algorithm. |
+| `scheduler.py` | **Logic** | The "Brain." Decides where tasks go using a simple algorithm. |
 | `recommender.py` | **Logic** | The "Advisor." Finds alternative slots when conflicts occur. |
 | `io_handler.py` | **Input** | Handles user prompts to collect task data. |
 | `reporter.py` | **Output** | Handles ASCII visualization and CSV file saving. |
