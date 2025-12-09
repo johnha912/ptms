@@ -9,7 +9,7 @@ It features **Conflict Resolution** and a **Recommender System** that suggests a
 
 ## 🚀 Key Features
 * **Auto-Scheduling:** Assigns 15-minute blocks based on "Earliest Start" and "Latest End" constraints.
-* **Priority Logic:** Critical ('S') tasks are scheduled before Flexible ('C') tasks.
+* **Priority Logic:** Critical ('S') tasks are scheduled before Flexible ('F') tasks.
 * **Conflict Handling:** If a task doesn't fit, the system detects the error.
 * **Recommender System:** Scans the day for free gaps and suggests specific alternative times (e.g., *"Try 14:00-16:00"*).
 * **Visual Output:** Generates an ASCII bar chart of the week in the console.
