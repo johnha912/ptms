@@ -3,7 +3,7 @@ TEST_PROJECT.PY
 ---------------
 Unit tests using pytest (Functions + Assert).
 Sorted from Simple -> Complex.
-Please run with py/python -m pytest ptms/test_project.py
+Please run with py/python -m pytest ptms/unit_test.py
 """
 import utils
 import recommender

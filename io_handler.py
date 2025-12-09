@@ -19,20 +19,29 @@ def get_tasks_from_user():
         earliest = utils.parse_time(input("Earliest Start (HH:MM): ")) or 0
         latest = utils.parse_time(input("Latest End (HH:MM): ")) or MINUTES_PER_DAY
         days_str = input("Specific days (Mon,Wed) or enter: ")
-        prio = input("Priority (S, A, B, C): ").upper()
+        prio = input("Priority (S, A, B, C, D, F): ").upper()
         
         try:
             freq = int(input("Times per week: "))
         except ValueError:
             freq = 1
 
-        pref_days = [d.strip().title() for d in days_str.split(',')] if days_str else []
+        pref_days = []
+        if days_str:
+            day_mapping = {
+                'mon': 'Monday', 'tue': 'Tuesday', 'wed': 'Wednesday',
+                'thu': 'Thursday', 'fri': 'Friday', 'sat': 'Saturday', 'sun': 'Sunday'
+            }
+            for d in days_str.split(','):
+                d_lower = d.strip().lower()
+                if d_lower in day_mapping:
+                    pref_days.append(day_mapping[d_lower])
 
         tasks.append({
             'name': name, 'duration': dur,
             'earliest_min': earliest, 'latest_min': latest,
             'frequency': freq, 'min_days_between': 0,
             'preferred_days': pref_days,
-            'priority': prio if prio in 'SABCD' else 'C'
+            'priority': prio if prio in 'SABCDF' else 'C'
         })
     return tasks

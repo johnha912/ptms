@@ -4,8 +4,8 @@ TEST_PROJECT2.PY
 Unit tests using unittest module with class-based organization.
 Tests are organized from Simple -> Complex across different modules.
 
-Run with: python -m unittest test_project2.py
-Or:       python test_project2.py
+Run with: python -m unittest unit_test2.py
+Or:       python unit_test2.py
 """
 import unittest
 import utils

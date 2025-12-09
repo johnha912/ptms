@@ -27,8 +27,10 @@ def main():
     visualization_data = [[] for _ in range(7)]
 
     for day_idx, tasks_on_day in enumerate(daily_tasks):
-        if not tasks_on_day: continue
         day_name = week_dates[day_idx].strftime("%A")
+        
+        if not tasks_on_day:
+            continue
         
         # Sort tasks: Critical (S) first, then by tightness
         tasks_on_day.sort(key=lambda t: (

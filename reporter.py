@@ -11,22 +11,24 @@ def visualize_schedule(viz_data, week_dates):
     print("\n" + "=" * 60 + "\nSCHEDULE VISUALIZATION\n" + "=" * 60)
 
     for i, items in enumerate(viz_data):
-        if not items: continue
         day_name = week_dates[i].strftime("%A, %b %d")
         print(f"\n{day_name}\n" + "-" * 60)
 
-        # Sort tasks by time
-        sorted_items = sorted(items, key=lambda x: x.get('start_min', 9999))
+        if not items:
+            print(" (No tasks scheduled)")
+        else:
+            # Sort tasks by time
+            sorted_items = sorted(items, key=lambda x: x.get('start_min', 9999))
 
-        for item in sorted_items:
-            if 'start_min' in item:
-                # Calculate bar length: 1 char per 15 mins
-                bar_len = item['duration'] // 15
-                bar = "█" * min(bar_len, 40) 
-                s_time = utils.format_time(item['start_min'])
-                print(f" {s_time} | {bar} {item['name']}")
-            else:
-                print(f" ❌ {item['name']}: {item['message']}")
+            for item in sorted_items:
+                if 'start_min' in item:
+                    # Calculate bar length: 1 char per 15 mins
+                    bar_len = item['duration'] // 15
+                    bar = "█" * min(bar_len, 40) 
+                    s_time = utils.format_time(item['start_min'])
+                    print(f" {s_time} | {bar} {item['name']}")
+                else:
+                    print(f" ❌ {item['name']}: {item['message']}")
 
 def export_to_csv(schedule_data):
     """Writes the results to 'my_schedule.csv'."""
